@@ -1,7 +1,6 @@
 package com.hello.servlet.basic.request;
 
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +13,7 @@ import java.io.IOException;
 public class RequestHeaderServlet extends HttpServlet {
 
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
         printStartLine(request);
         printHeaders(request);
         printHeaderUtils(request);
@@ -47,12 +46,6 @@ public class RequestHeaderServlet extends HttpServlet {
     //Header 모든 정보
     private void printHeaders(HttpServletRequest request) {
         System.out.println("--- Headers - start ---");
-
-//        Enumeration<String> headerNames = request.getHeaderNames();
-//        while (headerNames.hasMoreElements()) {
-//            String headerName = headerNames.nextElement();
-//            System.out.println(headerName + ":" + request.getHeader(headerName));
-//        }
 
         request.getHeaderNames().asIterator()
                 .forEachRemaining(headerName -> System.out.println(headerName + ":" + headerName));
