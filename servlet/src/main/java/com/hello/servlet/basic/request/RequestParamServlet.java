@@ -17,7 +17,7 @@ import java.io.IOException;
  * */
 
 @WebServlet(name = "requestParamServlet", urlPatterns = "/request-param")
-public class requestParamServlet extends HttpServlet {
+public class RequestParamServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
