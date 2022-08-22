@@ -5,9 +5,11 @@ plugins {
     id 'war'
 }
 
+
 group = 'com.hello'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
+
 
 configurations {
     compileOnly {
@@ -15,9 +17,11 @@ configurations {
     }
 }
 
+
 repositories {
     mavenCentral()
 }
+
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -26,6 +30,7 @@ dependencies {
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
 
 tasks.named('test') {
     useJUnitPlatform()
