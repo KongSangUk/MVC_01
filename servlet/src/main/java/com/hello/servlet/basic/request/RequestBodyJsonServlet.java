@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hello.servlet.basic.HelloData;
 import org.springframework.util.StreamUtils;
 
-import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 
 
 /**
- * http://localhost:8080/request-body-json
+ * <a href="http://localhost:8080/request-body-json">...</a>
  * <p>
  * JSON 형식 전송
  * content-type: application/json
@@ -26,10 +25,10 @@ import java.nio.charset.StandardCharsets;
 @WebServlet(name = "requestBodyJsonServlet", urlPatterns = "/request-body- json")
 public class RequestBodyJsonServlet extends HttpServlet{
 
-        private ObjectMapper objectMapper = new ObjectMapper();
+        private final ObjectMapper objectMapper = new ObjectMapper();
 
         @Override
-        protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
             ServletInputStream inputStream = request.getInputStream();
             String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
