@@ -1,7 +1,6 @@
 package com.hello.servlet.basic.request;
 
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,17 +10,17 @@ import java.io.IOException;
 
 /**
  * 1. 파라미터 전송 기능
- * http://localhost:8080/request-param?username=hello&age=20
+ * <a href="http://localhost:8080/request-param?username=hello&age=20">...</a>
  * <p>
  * 2. 동일한 파라미터 전송 가능
- * http://localhost:8080/request-param?username=hello&username=kim&age=20
+ * <a href="http://localhost:8080/request-param?username=hello&username=kim&age=20">...</a>
  * */
 
 @WebServlet(name = "requestParamServlet", urlPatterns = "/request-param")
 public class requestParamServlet extends HttpServlet {
 
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         System.out.println("[전체 파라미터 조회] - start");
 
