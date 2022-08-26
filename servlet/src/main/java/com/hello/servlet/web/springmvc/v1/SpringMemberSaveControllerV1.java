@@ -1,7 +1,7 @@
 package com.hello.servlet.web.springmvc.v1;
 
-import hello.servlet.domain.member.Member;
-import hello.servlet.domain.member.MemberRepository;
+import com.hello.servlet.bomain.member.Member;
+import com.hello.servlet.bomain.member.MemberRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
