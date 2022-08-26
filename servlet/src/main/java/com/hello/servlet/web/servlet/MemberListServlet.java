@@ -1,4 +1,4 @@
-package com.hello.servlet.web.servlt;
+package com.hello.servlet.web.servlet;
 
 import com.hello.servlet.bomain.member.Member;
 import com.hello.servlet.bomain.member.MemberRepository;
@@ -13,17 +13,18 @@ import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(name = "memberListServlet", urlPatterns = "/servlet/members")
-public class memberListServlet extends HttpServlet {
+public class MemberListServlet extends HttpServlet {
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
 
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response)
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-            throws ServletException, IOException {
+        List<Member> members = memberRepository.findAll();
+
         response.setContentType("text/html");
         response.setCharacterEncoding("utf-8");
-        List<Member> members = memberRepository.findAll();
+
         PrintWriter w = response.getWriter();
         w.write("<html>");
         w.write("<head>");
@@ -40,19 +41,17 @@ public class memberListServlet extends HttpServlet {
         w.write("    </thead>");
         w.write("    <tbody>");
 
-
         for (Member member : members) {
             w.write("    <tr>");
-            w.write("        <td>" + member.getId() + "</td>");
-            w.write("        <td>" + member.getUsername() + "</td>");
-
-            w.write("        <td>" + member.getAge() + "</td>");
+            w.write("        <td>"+member.getId()+"</td>");
+            w.write("        <td>"+member.getUsername()+"</td>");
+            w.write("        <td>"+member.getAge()+"</td>");
             w.write("    </tr>");
         }
+
         w.write("    </tbody>");
         w.write("</table>");
         w.write("</body>");
         w.write("</html>");
     }
-
 }
