@@ -8,7 +8,7 @@ plugins {
 
 group = 'com.hello'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = "1.9"
 
 
 configurations {
@@ -41,3 +41,4 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+targetCompatibility = JavaVersion.VERSION_1_9
